@@ -1,0 +1,29 @@
+{
+  "name": "mrs_fe",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.1.5",
+    "bootstrap-icons": "^1.11.3",
+    "html-react-parser": "^5.1.12",
+    "js-cookie": "^3.0.5",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-quill": "^2.0.0",
+    "swiper": "^11.1.5"
+  },
+  "devDependencies": {
+    "daisyui": "^4.12.10",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  }
+}
