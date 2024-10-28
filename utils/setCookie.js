@@ -3,5 +3,5 @@
 import { cookies } from "next/headers";
 
 export default async function setCookie(cookie) {
-  cookies().set("token_user", `${cookie}`);
+  cookies().set("token", `${cookie}`);
 }

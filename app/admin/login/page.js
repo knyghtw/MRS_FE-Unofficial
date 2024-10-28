@@ -6,10 +6,10 @@ import Input from "../../../components/Input";
 import Button from "../../../components/Button";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid"; // Import both icons
 
-import login from "@/api/auth/loginAdmin";
-import setCookie from "@/utils/setCookieAdmin";
+import login from "@/api/auth/login";
+import setCookie from "@/utils/setCookie";
 import setTimeExpired from "@/utils/setTimeExpired";
-import getToken from "@/utils/getCookieAdmin";
+import getToken from "@/utils/getCookie";
 
 export default function Login() {
   const [isClient, setIsClient] = useState(false);
