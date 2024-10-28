@@ -58,7 +58,7 @@ export default function Login() {
   }, [username, password]);
 
   useEffect(() => {
-    if (getToken() !== undefined && getToken() == 'token_user') {
+    if (getToken() !== undefined && getToken() == 'token') {
       router.push("/");
     }
     setIsClient(true);

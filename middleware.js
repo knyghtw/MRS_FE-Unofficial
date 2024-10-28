@@ -20,6 +20,12 @@ export function middleware(request) {
       return NextResponse.redirect(new URL("/admin/logout", request.url));
     }
   }
+
+  if (request.nextUrl.pathname.startsWith("/login")) {
+    if (token) {
+      return NextResponse.redirect(new URL("/", request.url));
+    }
+  }
   return NextResponse.next();
 }
 
