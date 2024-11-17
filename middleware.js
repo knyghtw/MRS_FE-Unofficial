@@ -21,7 +21,7 @@ export function middleware(request) {
     }
   }
 
-  if (request.nextUrl.pathname.startsWith("/login")) {
+  if (request.nextUrl.pathname.startsWith("/login") || request.nextUrl.pathname.startsWith("/register")) {
     if (token) {
       return NextResponse.redirect(new URL("/", request.url));
     }

@@ -37,6 +37,7 @@ export default function RegisterLayout() {
         const date = new Date(userCredential.data.token_detail.expires_at);
         const tokenExpired = Math.floor(date.getTime());
         await setTimeExpired(tokenExpired);
+        alert("Registrasi Berhasil");
         router.push("/");
       } catch (error) {
         console.log(error);
