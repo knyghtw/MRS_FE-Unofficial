@@ -135,7 +135,7 @@ export default function ManageProductLayout() {
   const deleteImage = () => {
     setImageURL("/image_placeholder.png");
     setImageFile(null);
-    document.getElementById("image-upload").value = "";
+    // document.getElementById("image-upload").value = "";
   };
 
   const handleCancel = () => {
