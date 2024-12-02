@@ -1,4 +1,3 @@
-
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -58,7 +57,7 @@ export default function Login() {
   }, [username, password]);
 
   useEffect(() => {
-    if (getToken() !== undefined && getToken() == 'token') {
+    if (getToken() !== undefined && getToken() == "token") {
       router.push("/admin/manage-page");
     }
     setIsClient(true);
