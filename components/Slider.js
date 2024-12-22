@@ -10,64 +10,57 @@ import "swiper/css/pagination";
 import { EffectFade, Navigation, Pagination } from "swiper/modules";
 
 import getJumbotron from "@/api/jumbotrons/get";
+import Image from "next/image";
 
 export default function Slider() {
-  const baseUrl = process.env.NEXT_PUBLIC_SERVER_BASE_URL;
-  const [loading, setLoading] = useState(true);
+  const baseUrl = process.env.NEXT_PUBLIC_SERVER_BASE_URL;  
   const [jumbotrons, setJumbotrons] = useState({});
 
-  const fetchData = async () => {
-    setLoading(true);
+  const fetchData = async () => {    
     const response = await getJumbotron();
-    setJumbotrons(response);
-    setLoading(false);
+    setJumbotrons(response);    
   };
 
   useEffect(() => {
     fetchData();
-  }, []);  
+  }, []);
 
   return (
     <>
-      {loading ? (
-        <div className="w-full bg-gray-200"></div>
-      ) : (
-        <>
-          <div className="relative">
-            <Swiper
-              spaceBetween={30}
-              effect={"fade"}
-              loop={true}
-              navigation={true}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[EffectFade, Navigation, Pagination]}
-              className="mySwiper"
-            >
-              {jumbotrons.data.items.map((slider, index) => (
-                <SwiperSlide key={index}>
-                  <div className="relative">
-                    <img
-                      className="w-full h-72 lg:h-96 object-cover"
-                      src={`${baseUrl}${slider.JumbotronImage}`}
-                      alt={`Slide ${index}`}
-                    />
-                    <div className="absolute top-40 left-28 w-1/2 z-50 text-white">
-                      <p className="font-playfair font-bold text-5xl 2xl:text-6xl">
-                        {slider.JumbotronTittle}
-                      </p>
-                      <p className="text-xl mt-8">
-                        {slider.JumbotronDescription}
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </>
-      )}
+      <div className="relative">
+        <Swiper
+          spaceBetween={30}
+          effect={"fade"}
+          loop={true}
+          navigation={true}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[EffectFade, Navigation, Pagination]}
+          className="mySwiper"
+        >
+          {jumbotrons.data?.items.map((slider, index) => (
+            <SwiperSlide key={index}>
+              <div className="relative">
+                <Image
+                  className="w-full h-72 lg:h-96 object-cover"
+                  width={1920}
+                  height={1080}
+                  src={`${baseUrl}${slider.JumbotronImage}`}
+                  alt={`Slide ${index}`}
+                  priority={true}                                  
+                />
+                <div className="absolute top-40 left-28 w-1/2 z-50 text-white">
+                  <p className="font-playfair font-bold text-5xl 2xl:text-6xl">
+                    {slider.JumbotronTittle}
+                  </p>
+                  <p className="text-xl mt-8">{slider.JumbotronDescription}</p>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </>
   );
 }
